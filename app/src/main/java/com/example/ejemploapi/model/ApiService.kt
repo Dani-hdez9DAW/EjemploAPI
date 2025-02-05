@@ -1,7 +1,8 @@
 import com.example.ejemploapi.model.Language
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Headers
-import retrofit2.http.POST
 
 public interface ApiService {
     @Headers(
@@ -11,4 +12,9 @@ public interface ApiService {
     @GET("languages")
     suspend fun getLanguages(): List<Language>
 }
+val retrofit = Retrofit.Builder()
+    .baseUrl("https://ws.detectlanguage.com/0.2/")
+    .addConverterFactory(GsonConverterFactory.create())
+    .build()
 
+val apiService = retrofit.create(ApiService::class.java)
