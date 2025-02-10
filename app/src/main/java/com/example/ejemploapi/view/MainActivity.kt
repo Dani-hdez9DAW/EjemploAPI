@@ -51,7 +51,7 @@ fun LanguagesScreen(modifier: Modifier = Modifier) {
     // Estado para almacenar un posible mensaje de error
     var errorMessage by remember { mutableStateOf("") }
     // Obtenemos el scope para lanzar corrutinas en Compose
-    val scope = rememberCoroutineScope()
+
 
     // Lanzamos la petición al iniciarse la pantalla
     // LaunchedEffect se ejecuta una única vez al iniciar el Composable
